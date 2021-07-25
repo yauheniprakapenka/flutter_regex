@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_testing/domain/utils/validators/email_validator.dart';
 import 'package:flutter_testing/presentation/core/constants/keys/login_page.dart';
 import 'package:flutter_testing/presentation/core/constants/strings/validation_error.dart';
 import 'package:flutter_testing/presentation/core/style/app_padding.dart';

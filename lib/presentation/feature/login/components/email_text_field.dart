@@ -12,6 +12,10 @@ Widget _buildEmailTextField() {
         if (value == null || value.isEmpty) {
           return ValidationError.enterEmail;
         }
+
+        final isValidEmail = validateEmail(value);
+        if (!isValidEmail) return ValidationError.incorrectEmail;
+        
         return null;
       },
     ),
