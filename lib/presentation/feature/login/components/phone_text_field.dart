@@ -4,12 +4,16 @@ Widget _buildPasswordTextField() {
   return Container(
     height: 90,
     child: TextFormField(
+      key: Key(LoginPageKeys.phoneKey),
       decoration: InputDecoration(
-        hintText: 'Введите email',
+        hintText: 'Телефон',
       ),
+      inputFormatters: [
+        FilteringTextInputFormatter.digitsOnly,
+      ],
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Введите email';
+          return ValidationError.enterPhone;
         }
         return null;
       },

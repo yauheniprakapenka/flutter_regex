@@ -4,12 +4,13 @@ Widget _buildEmailTextField() {
   return SizedBox(
     height: 90,
     child: TextFormField(
+      key: Key(LoginPageKeys.emailKey),
       decoration: InputDecoration(
-        hintText: 'Введите пароль',
+        hintText: 'email',
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Введите пароль';
+          return ValidationError.enterEmail;
         }
         return null;
       },
