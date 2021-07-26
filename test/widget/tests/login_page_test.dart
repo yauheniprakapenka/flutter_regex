@@ -1,26 +1,20 @@
 part of '../widget_test.dart';
 
-void runLoginFormTests() {
+void runLoginPageTests() {
   group('Login page tests', () {
     testWidgets('Cannot log in with an empty phone field', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: LoginPage(),
-        ),
-      );
+      await tester.pumpWidget(_buildLoginMaterialApp());
 
       // Precondition
       expect(find.text('Вход'), findsOneWidget);
-      final emailFieldKey = Key(LoginPageKeys.emailKey);
       final phoneFieldKey = Key(LoginPageKeys.phoneKey);
-      final login = Key(LoginPageKeys.loginButtonKey);
+      final loginButtonKey = Key(LoginPageKeys.loginButtonKey);
 
       // When
-      await tester.enterText(find.byKey(emailFieldKey), TestData.validEmail);
       await tester.enterText(find.byKey(phoneFieldKey), '');
-      await tester.tap(find.byKey(login));
+      await tester.tap(find.byKey(loginButtonKey));
       await tester.pump();
 
       // Then
@@ -30,11 +24,7 @@ void runLoginFormTests() {
     testWidgets('Phone field has only digits', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: LoginPage(),
-        ),
-      );
+      await tester.pumpWidget(_buildLoginMaterialApp());
 
       // Precondition
       expect(find.text('Вход'), findsOneWidget);
@@ -51,21 +41,15 @@ void runLoginFormTests() {
     testWidgets('Cannot log in with an empty email field', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: LoginPage(),
-        ),
-      );
+      await tester.pumpWidget(_buildLoginMaterialApp());
 
       // Precondition
       expect(find.text('Вход'), findsOneWidget);
       final emailFieldKey = Key(LoginPageKeys.emailKey);
-      final phoneFieldKey = Key(LoginPageKeys.phoneKey);
       final sendButtonKey = Key(LoginPageKeys.loginButtonKey);
 
       // When
       await tester.enterText(find.byKey(emailFieldKey), '');
-      await tester.enterText(find.byKey(phoneFieldKey), TestData.validPhone);
       await tester.tap(find.byKey(sendButtonKey));
       await tester.pump();
 
@@ -76,21 +60,15 @@ void runLoginFormTests() {
     testWidgets('Cannot log in with invalid email', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: LoginPage(),
-        ),
-      );
+      await tester.pumpWidget(_buildLoginMaterialApp());
 
       // Precondition
       expect(find.text('Вход'), findsOneWidget);
       final emailFieldKey = Key(LoginPageKeys.emailKey);
-      final phoneFieldKey = Key(LoginPageKeys.phoneKey);
       final loginButtonKey = Key(LoginPageKeys.loginButtonKey);
 
       // When
       await tester.enterText(find.byKey(emailFieldKey), TestData.invalidEmail);
-      await tester.enterText(find.byKey(phoneFieldKey), TestData.validPhone);
       await tester.tap(find.byKey(loginButtonKey));
       await tester.pump();
 
@@ -98,14 +76,10 @@ void runLoginFormTests() {
       expect(find.text('Неверно указан email'), findsOneWidget);
     });
 
-    testWidgets('Successful login', (
+    testWidgets('Success login', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: LoginPage(),
-        ),
-      );
+      await tester.pumpWidget(_buildLoginMaterialApp());
 
       // Precondition
       expect(find.text('Вход'), findsOneWidget);
@@ -123,4 +97,8 @@ void runLoginFormTests() {
       expect(find.text('Авторизация успешна'), findsOneWidget);
     });
   });
+}
+
+MaterialApp _buildLoginMaterialApp() {
+  return MaterialApp(home: LoginPage());
 }

@@ -1,22 +1,17 @@
-part of '../page/login_page.dart';
+part of '../page/register_page.dart';
 
 Widget _buildEmailTextField() {
   return SizedBox(
     height: 90,
     child: TextFormField(
-      key: Key(LoginPageKeys.emailKey),
+      key: Key(RegisterPageKey.emailKey),
       decoration: InputDecoration(
         hintText: 'email',
       ),
-      keyboardType: TextInputType.emailAddress,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return ValidationError.enterEmail;
         }
-
-        final isValidEmail = validateEmail(value);
-        if (!isValidEmail) return ValidationError.incorrectEmail;
-
         return null;
       },
     ),

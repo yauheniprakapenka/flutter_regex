@@ -3,6 +3,7 @@ class TestData {
   static const validPhone = '79262001813';
   static const validFirstName = 'Tom';
   static const validLastName = 'Edison';
+  static const validPassword = 'Test1234567890';
 
   static const invalidEmail = 'helloworld';
 

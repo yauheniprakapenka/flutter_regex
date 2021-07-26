@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_testing/domain/utils/validators/email_validator.dart';
 import 'package:flutter_testing/presentation/core/constants/keys/login_page.dart';
+import 'package:flutter_testing/presentation/core/constants/strings/route_name.dart';
 import 'package:flutter_testing/presentation/core/constants/strings/validation_error.dart';
+import 'package:flutter_testing/presentation/core/style/app_color.dart';
 import 'package:flutter_testing/presentation/core/style/app_padding.dart';
 
 part '../components/email_text_field.dart';
 part '../components/phone_text_field.dart';
+part '../components/title.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -25,11 +28,7 @@ class LoginPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Вход',
-                key: Key(LoginPageKeys.titleTextKey),
-                style: Theme.of(context).textTheme.headline4,
-              ),
+              _buildTitle(context),
               SizedBox(height: 100),
               Center(
                 child: Container(
@@ -45,20 +44,31 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              ValueListenableBuilder(
-                valueListenable: _successLoginText,
-                builder: (context, value, child) {
-                  return Text(_successLoginText.value);
-                },
-              ),
+              _buildSuccessText(),
               Spacer(),
               _buildLoginButton(),
               SizedBox(height: 40),
-              _buildRegistrationButton(),
+              _buildRegistrationButton(context),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildSuccessText() {
+    return ValueListenableBuilder(
+      valueListenable: _successLoginText,
+      builder: (context, value, child) {
+        return Center(
+          child: Text(
+            _successLoginText.value,
+            style: TextStyle(
+              color: AppColor.success,
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -76,7 +86,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _buildRegistrationButton() {
+  Widget _buildRegistrationButton(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -87,7 +97,9 @@ class LoginPage extends StatelessWidget {
           child: Text(
             'Зарегистрироваться',
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, RouteName.registerPage);
+          },
         )
       ],
     );
