@@ -14,11 +14,12 @@ class RegisterPageObject {
 
   // Find Keys
 
-  final titleKey = find.byValueKey('titleKey');
+  final titleKey = find.byValueKey(RegisterPageKey.titleTextKey);
   final emailKey = find.byValueKey(RegisterPageKey.emailKey);
   final passwordKey = find.byValueKey(RegisterPageKey.passwordKey);
   final registerButtonKey = find.byValueKey(RegisterPageKey.registerButtonKey);
-  final successRegistrationKey = find.byValueKey('successRegistrationKey');
+  final successRegistrationKey =
+      find.byValueKey(RegisterPageKey.successRegistrationKey);
 
   // Tap
 
@@ -36,7 +37,7 @@ class RegisterPageObject {
     );
   }
 
-  Future<void> tapOnRegisterButton() async {
+  Future<void> tapRegisterButton() async {
     await driver.tap(
       registerButtonKey,
       timeout: _timeout,
@@ -61,7 +62,7 @@ class RegisterPageObject {
     );
   }
 
-  Future<String> findSuccessfulText() async {
+  Future<String> findSuccessText() async {
     return await driver.getText(
       successRegistrationKey,
       timeout: _timeout,

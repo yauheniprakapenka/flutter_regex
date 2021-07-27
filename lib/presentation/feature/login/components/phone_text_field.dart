@@ -5,6 +5,7 @@ Widget _buildPasswordTextField() {
     height: 90,
     child: TextFormField(
       key: Key(LoginPageKeys.phoneKey),
+      controller: TextEditingController(text: ''),
       decoration: InputDecoration(
         hintText: 'Телефон',
       ),

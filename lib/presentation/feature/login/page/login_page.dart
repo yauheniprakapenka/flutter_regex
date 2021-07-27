@@ -94,6 +94,7 @@ class LoginPage extends StatelessWidget {
           'Нет аккаунта?',
         ),
         TextButton(
+          key: Key(LoginPageKeys.registerButtonKey),
           child: Text(
             'Зарегистрироваться',
           ),

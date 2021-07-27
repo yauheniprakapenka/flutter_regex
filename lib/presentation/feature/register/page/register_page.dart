@@ -37,6 +37,7 @@ class RegisterPage extends StatelessWidget {
                     return Center(
                       child: Text(
                         value.toString(),
+                        key: Key(RegisterPageKey.successRegistrationKey),
                         style: TextStyle(
                           color: AppColor.success,
                         ),

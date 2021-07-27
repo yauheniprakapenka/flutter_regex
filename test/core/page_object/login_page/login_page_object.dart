@@ -14,9 +14,9 @@ class LoginPageObject {
   final findTitleKey = find.byValueKey(LoginPageKeys.titleTextKey);
   final findPhoneFieldKey = find.byValueKey(LoginPageKeys.phoneKey);
   final findEmailFieldKey = find.byValueKey(LoginPageKeys.emailKey);
-  final findSendButtonKey = find.byValueKey(LoginPageKeys.loginButtonKey);
-  final findWelcomeTextKey = find.byValueKey(LoginPageKeys.welcomeTextKey);
-  final findLoginButtonKey = find.byValueKey(LoginPageKeys.registerButtonKey);
+  final findLoginButtonKey = find.byValueKey(LoginPageKeys.loginButtonKey);
+  final findRegisterButtonKey =
+      find.byValueKey(LoginPageKeys.registerButtonKey);
 
   LoginPageObject({
     required this.driver,
@@ -38,16 +38,16 @@ class LoginPageObject {
     );
   }
 
-  Future<void> tapOnSendButton() async {
+  Future<void> tapLoginButton() async {
     await driver.tap(
-      findSendButtonKey,
+      findLoginButtonKey,
       timeout: _timeout,
     );
   }
 
-  Future<void> tapLoginButton() async {
+  Future<void> tapRegisterButton() async {
     await driver.tap(
-      findLoginButtonKey,
+      findRegisterButtonKey,
       timeout: _timeout,
     );
   }
@@ -70,15 +70,6 @@ class LoginPageObject {
     );
   }
 
-  Future<String> findWelcomeText() async {
-    return await driver.getText(
-      findWelcomeTextKey,
-      timeout: _timeout,
-    );
-  }
-
-  // get
-
   Future<String> getTextFromPhoneField() async {
     return await driver.getText(
       findPhoneFieldKey,
@@ -87,6 +78,11 @@ class LoginPageObject {
   }
 
   // wait
+
+  Future<void> waitSuccessText() async {
+    final text = 'Авторизация успешна';
+    return await driver.waitFor(find.text(text), timeout: _timeout);
+  }
 
   Future<void> waitForEmailEmptyPhone() async {
     final text = ValidationError.enterPhone;

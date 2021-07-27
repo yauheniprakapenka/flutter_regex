@@ -7,10 +7,12 @@ import 'package:flutter_testing/presentation/feature/register/page/register_page
 part 'presentation/core/navigation/on_generate_route.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
+  App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
