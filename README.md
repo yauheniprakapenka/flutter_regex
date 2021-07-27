@@ -1,5 +1,10 @@
 # flutter_testing
-Изучаю тестирование: unit, widget и integration
+Изучаю тестирование: unit, widget и integration. На примере экрана авторизации
+
+<img src="demo/login.png" width=200> <img src="demo/register.png" width=200>
+
+<br> 
+<br> 
 
 **Интеграционные тесты**
 
@@ -17,4 +22,9 @@
 **Виджет тесты**
 
 1. Перейти в test/widget/widget_test.dart
+2. Выполнить Run для main()
+
+**Unit**
+
+1. Перейти в test/unit/validate_email_test.dart
 2. Выполнить Run для main()
