@@ -1,3 +1,10 @@
+<p align="center">
+  <img 
+    width="400"
+    src="https://user-images.githubusercontent.com/47568606/179615913-a4c0dee0-73c5-4b50-a2d3-683b12a6ab7b.jpg"
+  >
+</p>
+
 **Общие специальные символы:**
 
 `^` – начало ввода.
