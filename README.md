@@ -37,6 +37,14 @@
 
 `[^…]` - соответствие всем символам, не указанных в скобках.
 
+`(?=)` - Find expression A where expression B follows: A(?=B)
+
+`(?!)` - Find expression A where expression B does not follow: A(?!B)
+
+`(?<=)` - Find expression A where expression B precedes: (?<=B)A
+
+`(?<!)` - Find expression A where expression B does not precede: (?<!B)A
+
 **Указание количества символов для соответствия**
 
 `+` – повторение символа минимум от одного раза.
