@@ -17,16 +17,25 @@ import 'package:test/test.dart';
 ///
 /// Метасимволы `.` и `+` в наборе считаются обычными символами, если используются в наборе [+.].
 /// Тем не менее, экранировать их не повредит. [\w.] равновсилен [\w\.].
+/// 
+/// Метасимволы `+` и `*` обеспечивают совпадение с не­ ограниченным количеством символов.
+/// Они не позво ляют никоим образом задать максимальное количес­тво совпадающих символов.
+///
+/// Метасимволы `+`, `*` и `?` поддерживают лишь мини­мальные количества совпадающих символов:
+/// нулевое и единичное. Они не позволяют никоим образом за­дать вручную минимальное
+/// количество совпадений.
+///
+/// Кроме того, нельзя никоим образом задать требую­щееся количество совпадений.
 void main() {
   const String pattern = r'[\w.]+@[\w.]+\.\w+';
 
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('a@a.a');
       expect(actual, true);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('bb@bb.bb');
       expect(actual, true);
     });
@@ -38,32 +47,32 @@ void main() {
   });
 
   group('Has not match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('');
       expect(actual, false);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('@');
       expect(actual, false);
     });
 
-    test('Ex3', () {
+    test('Test 3', () {
       final bool actual = RegExp(pattern).hasMatch('a@a');
       expect(actual, false);
     });
 
-    test('Ex4', () {
+    test('Test 4', () {
       final bool actual = RegExp(pattern).hasMatch('@a.a');
       expect(actual, false);
     });
 
-    test('Ex5', () {
+    test('Test 5', () {
       final bool actual = RegExp(pattern).hasMatch('a.a@');
       expect(actual, false);
     });
 
-    test('Ex6', () {
+    test('Test 6', () {
       final bool actual = RegExp(pattern).hasMatch('bb @bb.bb');
       expect(actual, false);
     });

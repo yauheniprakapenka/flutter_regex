@@ -8,17 +8,17 @@ void main() {
   const String pattern = r'\w+[\w.]*@[\w.]+\.\w+';
 
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('a@a.com');
       expect(actual, true);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('a.@a.com');
       expect(actual, true);
     });
 
-    test('Ex3', () {
+    test('Test 3', () {
       final bool actual = RegExp(pattern).hasMatch('a.@a.com');
       expect(actual, true);
     });

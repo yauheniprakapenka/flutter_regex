@@ -6,17 +6,17 @@ void main() {
   const String pattern = r'(19|20|21)\d{2}';
 
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('1926');
       expect(actual, true);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('2026');
       expect(actual, true);
     });
 
-    test('Ex3', () {
+    test('Test 3', () {
       final bool actual = RegExp(pattern).hasMatch('2139');
       expect(actual, true);
     });

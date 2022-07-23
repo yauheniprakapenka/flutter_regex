@@ -28,19 +28,19 @@ void main() {
   const String pattern = r'array\[[0-9]\]';
 
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('array[1]');
       expect(actual, true);
     });
   });
 
   group('Has not match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('array[1');
       expect(actual, false);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('array[x]');
       expect(actual, false);
     });

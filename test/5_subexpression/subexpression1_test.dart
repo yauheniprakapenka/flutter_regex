@@ -15,29 +15,24 @@ import 'package:test/test.dart';
 void main() {
   const String pattern = '(&nbsp;){2,}';
 
-  /// aaa&nbsp;bbb fail
-  /// aaa&nbsp;&nbsp;bbb OK
-  /// aaa&nbsp;&nbsp;&nbsp;bbb OK
-  /// aaa&nbsp;bbb&nbsp; fail
-
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('aaa&nbsp;&nbsp;bbb');
       expect(actual, true);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('aaa&nbsp;&nbsp;&nbsp;bbb');
       expect(actual, true);
     });
 
     group('Has not match', () {
-      test('Ex1', () {
+      test('Test 1', () {
         final bool actual = RegExp(pattern).hasMatch('aaa&nbsp;bbb');
         expect(actual, false);
       });
 
-      test('Ex2', () {
+      test('Test 2', () {
         final bool actual = RegExp(pattern).hasMatch('aaa&nbsp;bbb&nbsp;');
         expect(actual, false);
       });

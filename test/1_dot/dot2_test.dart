@@ -5,59 +5,59 @@ void main() {
   const String pattern = '.a.';
 
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('sales1.xls');
       expect(actual, true);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('apac1');
       expect(actual, true);
     });
 
-    test('Ex3', () {
+    test('Test 3', () {
       final bool actual = RegExp(pattern).hasMatch('.a.');
       expect(actual, true);
     });
 
-    test('Ex4', () {
+    test('Test 4', () {
       final bool actual = RegExp(pattern).hasMatch('aas');
       expect(actual, true);
     });
   });
 
   group('Has not match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('ordersЗ.xls');
       expect(actual, false);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('europe');
       expect(actual, false);
     });
 
-    test('Ex3', () {
+    test('Test 3', () {
       final bool actual = RegExp(pattern).hasMatch('cAt');
       expect(actual, false);
     });
 
-    test('Ex4', () {
+    test('Test 4', () {
       final bool actual = RegExp(pattern).hasMatch('na');
       expect(actual, false);
     });
 
-    test('Ex5', () {
+    test('Test 5', () {
       final bool actual = RegExp(pattern).hasMatch('an');
       expect(actual, false);
     });
 
-    test('Ex6', () {
+    test('Test 6', () {
       final bool actual = RegExp(pattern).hasMatch('ann');
       expect(actual, false);
     });
 
-    test('Ex7', () {
+    test('Test 7', () {
       final bool actual = RegExp(pattern).hasMatch('as');
       expect(actual, false);
     });

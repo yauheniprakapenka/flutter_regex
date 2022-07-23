@@ -6,12 +6,12 @@ void main() {
   const String pattern = r'https?:\/\/[\w.\/]+';
 
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('https://www.google.com/');
       expect(actual, true);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('http://www.google.com/');
       expect(actual, true);
     });

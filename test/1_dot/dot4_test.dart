@@ -8,29 +8,29 @@ void main() {
   const String pattern = r'.a.\.';
 
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('na1.xls');
       expect(actual, true);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('sal..xls');
       expect(actual, true);
     });
   });
 
   group('Has not match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('sale');
       expect(actual, false);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('ale.');
       expect(actual, false);
     });
 
-    test('Ex3', () {
+    test('Test 3', () {
       final bool actual = RegExp(pattern).hasMatch('aaaaa');
       expect(actual, false);
     });

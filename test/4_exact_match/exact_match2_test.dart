@@ -6,12 +6,12 @@ void main() {
   const String pattern = r'\d{1,2}[-\/]\d{1,2}[-\/]\d{2,4}';
 
   group('Has match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('4/8/17');
       expect(actual, true);
     });
 
-    test('Ex2', () {
+    test('Test 2', () {
       final bool actual = RegExp(pattern).hasMatch('10-6-2018');
       expect(actual, true);
     });
@@ -23,7 +23,7 @@ void main() {
   });
 
   group('Has not match', () {
-    test('Ex1', () {
+    test('Test 1', () {
       final bool actual = RegExp(pattern).hasMatch('2/2/2');
       expect(actual, false);
     });

@@ -1,30 +1,35 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:test/test.dart';
 
-/// `{2,4}` обозначает минимум 2 совпадения, максимум 4.
+/// `#` обычный символ.
+/// `[0-9A-Fa-f]` диапазон, который повторяется шесть раз подряд.
+/// `{6}` обозначает 6 совпадений.
 
 void main() {
-  const String pattern = '#[0-9A-Fa-f]{6}';
+  const String longPattern = '#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]';
+  const String shortPattern = '#[0-9A-Fa-f]{6}';
 
   group('Has match', () {
-    test('Ex1', () {
-      final bool actual = RegExp(pattern).hasMatch('#fefbdB');
+    test('Test 1', () {
+      final bool actual = RegExp(shortPattern).hasMatch('#fefbdB');
       expect(actual, true);
     });
 
-    test('Ex2', () {
-      final bool actual = RegExp(pattern).hasMatch('#0000ff');
+    test('Test 2', () {
+      final bool actual = RegExp(shortPattern).hasMatch('#0000ff');
       expect(actual, true);
     });
   });
 
   group('Has not match', () {
-    test('Ex1', () {
-      final bool actual = RegExp(pattern).hasMatch('0000ff');
+    test('Test 1', () {
+      final bool actual = RegExp(shortPattern).hasMatch('0000ff');
       expect(actual, false);
     });
 
-    test('Ex2', () {
-      final bool actual = RegExp(pattern).hasMatch('#0000fz');
+    test('Test 2', () {
+      final bool actual = RegExp(shortPattern).hasMatch('#0000fz');
       expect(actual, false);
     });
   });
