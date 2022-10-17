@@ -1,35 +1,25 @@
 import 'package:test/test.dart';
 
-/// Две точки для обнаружения совпадения с любыми двумя соседними символами.
 void main() {
   const String pattern = '.a..';
 
-  group('Has match', () {
-    test('Test 1', () {
-      final bool actual = RegExp(pattern).hasMatch('sales');
-      expect(actual, true);
-    });
-
-    test('Test 2', () {
-      final bool actual = RegExp(pattern).hasMatch('apac1');
-      expect(actual, true);
-    });
-
-    test('Test 3', () {
-      final bool actual = RegExp(pattern).hasMatch('.a..');
-      expect(actual, true);
+  group('Match', () {
+    test('Tests', () {
+      final bool actual1 = RegExp(pattern).hasMatch('sales');
+      final bool actual2 = RegExp(pattern).hasMatch('apac1');
+      final bool actual3 = RegExp(pattern).hasMatch('.a..');
+      expect(actual1, true);
+      expect(actual2, true);
+      expect(actual3, true);
     });
   });
 
-  group('Has not match', () {
-    test('Test 1', () {
-      final bool actual = RegExp(pattern).hasMatch('aas');
-      expect(actual, false);
-    });
-
-    test('Test 2', () {
-      final bool actual = RegExp(pattern).hasMatch('abcd');
-      expect(actual, false);
+  group('Not match', () {
+    test('Tests', () {
+      final bool actual4 = RegExp(pattern).hasMatch('aas');
+      final bool actual5 = RegExp(pattern).hasMatch('abcd');
+      expect(actual4, false);
+      expect(actual5, false);
     });
   });
 }

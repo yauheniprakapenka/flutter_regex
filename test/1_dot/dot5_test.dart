@@ -1,30 +1,23 @@
 import 'package:test/test.dart';
 
-/// Пример с включением точного расширения.
 void main() {
   const String pattern = r'.a.\.xls';
 
-  group('Has match', () {
-    test('Test 1', () {
+  group('Match', () {
+    test('Tests', () {
       final bool actual = RegExp(pattern).hasMatch('cat.xls');
       expect(actual, true);
     });
   });
 
-  group('Has not match', () {
-    test('Test 1', () {
-      final bool actual = RegExp(pattern).hasMatch('cat.doc');
-      expect(actual, false);
-    });
-
-    test('Test 2', () {
-      final bool actual = RegExp(pattern).hasMatch('cat1.doc');
-      expect(actual, false);
-    });
-
-    test('Test 3', () {
-      final bool actual = RegExp(pattern).hasMatch('cat..doc');
-      expect(actual, false);
+  group('Not match', () {
+    test('Tests', () {
+      final bool actual1 = RegExp(pattern).hasMatch('cat.zls');
+      final bool actual2 = RegExp(pattern).hasMatch('cat1.doc');
+      final bool actual3 = RegExp(pattern).hasMatch('cat..doc');
+      expect(actual1, false);
+      expect(actual2, false);
+      expect(actual3, false);
     });
   });
 }

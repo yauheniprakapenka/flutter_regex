@@ -1,6 +1,5 @@
 import 'package:test/test.dart';
 
-/// Метасимвол `\D` любой символ, кроме цифры. Равносильно [^0-9]
 void main() {
   const String pattern = r'[ns]a[\D]\.xls';
 

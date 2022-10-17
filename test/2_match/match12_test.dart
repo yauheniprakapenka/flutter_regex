@@ -1,6 +1,5 @@
 import 'package:test/test.dart';
 
-/// Знак `@` экранировать не нужно.
 void main() {
   const String pattern = r'\w\d\w\d\w\d';
 
